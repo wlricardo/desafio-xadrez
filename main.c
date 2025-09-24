@@ -22,30 +22,43 @@
 // Função mover_torre(int casas) - Simula o movimento da Torre para a direita.
 void mover_torre(int casas) {
     for (int i = 0; i < casas; i++) {
-        printf("Direita  ");
+        printf("Direita\n");
     }
+    printf("\n");
 }   
 
 // Função mover_bispo(int casas) - Simula o movimento do Bispo na diagonal para cima e à direita.
 void mover_bispo(int casas) {
     for (int i = 0; i < casas; i++)
     {
-        printf("Cima, Direita  ");
+        printf("Cima, Direita\n");
     }
-    
+    printf("\n");    
 }
 
 // Função mover_rainha(int casas) - Simula o movimento da Rainha para a esquerda.
 void mover_rainha(int casas) {
     for (int i = 0; i < casas; i++)
     {
-        printf("Esquerda  ");
+        printf("Esquerda\n");
     }
-    
+    printf("\n");    
+}
+
+// Função mover_cavalo(int casas) - Simula o movimento do Cavalo em "L".
+void mover_cavalo(int casas) {
+    for (int i = 0; i < 2; i++)
+    {
+        printf("Cima\n");
+    }
+    printf("Direita\n\n");    
 }
 
 int main(int argc, char const *argv[])
 {
     mover_torre(5);
+    mover_bispo(5);
+    mover_rainha(8);
+    mover_cavalo(1);
     return 0;
 }
