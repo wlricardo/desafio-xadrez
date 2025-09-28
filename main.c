@@ -11,6 +11,8 @@
     -Bispo: Move-se na diagonal. Seu programa deverá simular o movimento do Bispo cinco casas na diagonal para cima e à 
     direita. Para representar a diagonal, você imprimirá a combinação de duas direções a cada casa (ex: "Cima, Direita").
     -Rainha: Move-se em todas as direções. Seu programa deverá simular o movimento da Rainha oito casas para a esquerda.
+    -Cavalo: Move-se em "L", ou seja, duas casas em uma direção e depois uma casa perpendicular. Seu programa deverá simular
+    o movimento do Cavalo, movendo-se duas casas para cima e depois uma casa para a direita.
 
     Requisitos funcionais e não fuincionais descritos no site da disiplina.
 */
@@ -21,28 +23,39 @@
 
 // Função mover_torre(int casas) - Simula o movimento da Torre para a direita.
 void mover_torre(int casas) {
-    for (int i = 0; i < casas; i++) {
-        printf("Direita\n");
+    if (casas <= 0) {
+        printf("\n");
+        return;
     }
-    printf("\n");
+    printf("Direita\n");
+    mover_torre(casas - 1);
 }   
 
 // Função mover_bispo(int casas) - Simula o movimento do Bispo na diagonal para cima e à direita.
 void mover_bispo(int casas) {
-    for (int i = 0; i < casas; i++)
-    {
-        printf("Cima, Direita\n");
+    if (casas <= 0) {
+        printf("\n");
+        return;
     }
-    printf("\n");    
+    // Loop externo: movimento vertical (cima)
+    for (int v = 0; v < 1; v++) {
+        printf("Cima, ");
+        // Loop interno: movimento horizontal (direita)
+        for (int h = 0; h < 1; h++) {
+            printf("Direita\n");
+        }
+    }
+    mover_bispo(casas - 1);
 }
 
 // Função mover_rainha(int casas) - Simula o movimento da Rainha para a esquerda.
 void mover_rainha(int casas) {
-    for (int i = 0; i < casas; i++)
-    {
-        printf("Esquerda\n");
+    if (casas <= 0) {
+        printf("\n");
+        return;
     }
-    printf("\n");    
+    printf("Esquerda\n");
+    mover_rainha(casas - 1);    
 }
 
 // Função mover_cavalo(int casas) - Simula o movimento do Cavalo em "L".
